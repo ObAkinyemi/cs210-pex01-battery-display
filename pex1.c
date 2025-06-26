@@ -88,7 +88,7 @@ void drawBattery(int start_y, int start_x, int charge) {
  * @return nothing
  */
 void init() {
-    // TODO: Initialize ncurses and color pairs. Start echo() of type characters
+    // TODO: Initialize ncurses and color pairs. Start echo() of typed characters
 }
 
 
