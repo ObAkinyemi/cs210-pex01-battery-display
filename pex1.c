@@ -3,10 +3,6 @@
 #include <unistd.h>
 #include <ncurses.h>
 
-#define BLACK_WHITE 1
-#define BLACK_GREEN 2
-#define BLACK_RED 3
-
 
 /**
  * @brief draws one filled charge segment
