@@ -125,12 +125,16 @@ int main() {
     drawIntroScreen();              //Function for intro screen
     erase();                        // Clear screen for next display
 
-    //Get battery charges. This function is complete. Do not alter this code
-    charge1 = getBatteryLevels(1);
-    charge2 = getBatteryLevels(2);
-    charge3 = getBatteryLevels(3);
 
+    //** ******************DO NOT ALTER THIS CODE  ***************************
+    //Get battery charges. This code will ask the user for the battery levels
+    //This code should run AFTER your intro screen and BEFORE the battery display
+    charge1 = getBatteryLevels(1);  //Ask for the first battery's level
+    charge2 = getBatteryLevels(2);  //Ask for the second battery's level
+    charge3 = getBatteryLevels(3);  //Ask for the third battery's level
     erase();                        // Clear screen for next display
+    //** ******************DO NOT ALTER THIS CODE  ***************************
+
 
     //draw the screen with the batteries' charges
     drawBatteryDisplay(charge1, charge2, charge3);
