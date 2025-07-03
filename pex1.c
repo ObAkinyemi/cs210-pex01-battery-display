@@ -64,6 +64,9 @@ void checkSize() {
 
 /** ****************************DO NOT ALTER THIS FUNCTION ************************************
  * @brief draws a single battery with given charge (0–10)
+ * @param start_y  vertical or y location of the battery
+ * @param start_x  horizontal or x location of the battery
+ * @param charge  charge level of the battery
  */
 void drawBattery(int start_y, int start_x, int charge) {
     // Manually draw each of the 10 segments from top to bottom
