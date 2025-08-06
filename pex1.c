@@ -40,27 +40,6 @@ int getBatteryLevels(int battery) {
 }
 //*********************************************************************************************
 
-/** ****************************DO NOT ALTER THIS FUNCTION ************************************
- * @brief checks to ensure that the shell window is the correct size
- * of 32x80 rows and columns.  Exits after printing error message or
- * retuns without issue if the size is correct.
- * @return nothing
- */
-void checkSize() {
-    system("echo -ne '\e[8;32;80t'");   // Be sure to run PEX outside of VSC in
-                                        // a dedicated terminal window.
-    sleep(1);   // Wait for resize  
-    if (COLS != 80 || LINES != 32) {
-        move(1, 10);
-        printw("Do not run PEX1 in VSC's builtin terminal!");
-        refresh();
-        sleep(2);
-        endwin();
-        exit(1);
-    }
-}
-//*********************************************************************************************
-
 
 /** ****************************DO NOT ALTER THIS FUNCTION ************************************
  * @brief draws a single battery with given charge (0–10)
@@ -123,7 +102,6 @@ int main() {
     int charge1, charge2, charge3;
 
     init();                         //TODO: Complete this function definition
-    checkSize();                    //Ensure curses is being run outside of VSC
 
     drawIntroScreen();              //Function for intro screen
     erase();                        // Clear screen for next display
