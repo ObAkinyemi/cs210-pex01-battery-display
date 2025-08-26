@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <ncurses.h>
 
+#define BLACK_RED 1
+#define BLACK_GREEN 2
 
 /**
  * @brief draws one filled charge segment
@@ -11,6 +13,14 @@
  */
 void drawChargeBlock(int y, int x) {
     // TODO: Draw a filled block at the given coordinates
+    start_color();
+    init_pair(BLACK_GREEN, COLOR_BLACK, COLOR_GREEN);
+    attron(COLOR_PAIR(BLACK_GREEN));
+    
+    move (y, x);
+    printw("[x]");
+    
+    
 }
 
 /**
@@ -20,6 +30,12 @@ void drawChargeBlock(int y, int x) {
  */
 void drawEmptyBlock(int y, int x) {
     // TODO: Draw a empty block at the given coordinates
+    start_color();
+    init_pair(BLACK_RED, COLOR_BLACK, COLOR_RED);
+    attron(COLOR_PAIR(BLACK_RED));
+    move (y, x);
+    printw("[x]");
+    
 }
 
 
@@ -71,6 +87,9 @@ void drawBattery(int start_y, int start_x, int charge) {
  */
 void init() {
     // TODO: Initialize ncurses and color pairs. Start echo() of typed characters
+    initscr();
+    start_color();
+    echo();
 }
 
 
@@ -81,6 +100,47 @@ void init() {
  */
 void drawIntroScreen() {
     // TODO: Draw border, title, author name, battery image, and instructions
+    int x = 20;
+    move(1, 40-x);
+    printw("Battery Viewer");
+    move(2, 35-x);
+    printw("Created by C3C Akinyemi");
+    
+    start_color();
+    init_pair(BLACK_RED, COLOR_BLACK, COLOR_RED);
+    init_pair(BLACK_GREEN, COLOR_BLACK, COLOR_GREEN);
+    attron(COLOR_PAIR(BLACK_GREEN));
+   
+    move (4, 40-x);
+    printw("+----+");
+    move (5, 40-x);
+    printw("|[  ]|");
+    move (6, 40-x);
+    printw("|[  ]|");
+    move (7, 40-x);
+    printw("|[  ]|");
+
+    attroff(COLOR_PAIR(BLACK_GREEN));
+    attron(COLOR_PAIR(BLACK_RED));
+    
+    move (8, 40-x);
+    printw("|[  ]|");
+    move (10, 40-x);
+    printw("+----+");
+    
+    
+    attroff(COLOR_PAIR(BLACK_GREEN));
+    move(12, 25-x);
+    printw("Please enter 3 battery levels.");
+    move(13, 25-x);
+    printw("Each level will be displayed as a");
+    move(14, 25-x);
+    printw("multiple of 10%% using visual blocks.");
+    
+    
+    move(15, 25-x);
+    printw("Press Any key to continue...");
+    getch();
 }
 
 
@@ -92,6 +152,14 @@ void drawIntroScreen() {
  */
 void drawBatteryDisplay(int charge1, int charge2, int charge3) {
     // TODO: Use drawBattery() to draw each battery and show their percentage values below
+    move(1, 1);
+    drawBattery(10, 10, charge1);
+    drawBattery(10, 30, charge2);
+    drawBattery(10, 50, charge3);
+    move(18, 1);
+    printw("Press Any key to continue...");
+    getch();
+    endwin();
 }
 
 /**
