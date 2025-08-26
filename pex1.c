@@ -20,6 +20,7 @@ void drawChargeBlock(int y, int x) {
     move (y, x);
     printw("[x]");
     
+    attroff(COLOR_PAIR(BLACK_GREEN));
     
 }
 
@@ -35,6 +36,7 @@ void drawEmptyBlock(int y, int x) {
     attron(COLOR_PAIR(BLACK_RED));
     move (y, x);
     printw("[x]");
+    attroff(COLOR_PAIR(BLACK_RED));
     
 }
 
@@ -153,10 +155,28 @@ void drawIntroScreen() {
 void drawBatteryDisplay(int charge1, int charge2, int charge3) {
     // TODO: Use drawBattery() to draw each battery and show their percentage values below
     move(1, 1);
-    drawBattery(10, 10, charge1);
-    drawBattery(10, 30, charge2);
-    drawBattery(10, 50, charge3);
-    move(18, 1);
+    printw("Battery Charge Display");
+
+    move(3, 5);
+    printw("Battery 1");
+    drawBattery(5, 8, charge1);
+    move(17, 3);
+    printw("%d%%", charge1);
+    
+    
+    move(3, 25);
+    printw("Battery 2");
+    drawBattery(5, 28, charge2);
+    move(17, 25);
+    printw("%d%%", charge2);
+    
+    move(3, 45);
+    printw("Battery 3");
+    drawBattery(5, 48, charge3);
+    move(17, 45);
+    printw("%d%%", charge3);
+    
+    move(19, 1);
     printw("Press Any key to continue...");
     getch();
     endwin();
