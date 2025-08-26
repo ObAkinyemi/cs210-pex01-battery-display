@@ -210,4 +210,6 @@ int main() {
 
     endwin();                       //ends curses and clears screen
     return 0;
+    // IMPORTANT
+    // minor changes. But look at commit a0b38a4 for guidance on what to do.
 }
