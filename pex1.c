@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ncurses.h>
+#include <math.h>
 
 #define BLACK_RED 1
 #define BLACK_GREEN 2
@@ -179,7 +180,16 @@ void drawBatteryDisplay(int charge1, int charge2, int charge3) {
     move(19, 1);
     printw("Press Any key to continue...");
     getch();
-    endwin();
+}
+
+void drawTree(){
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("ʚ(*´꒳`*)ɞ");        
+        move(7,27);
+        printw("press any key to exit when you see it...");
+        getch();
+        endwin();
 }
 
 /**
@@ -207,8 +217,10 @@ int main() {
 
     //draw the screen with the batteries' charges
     drawBatteryDisplay(charge1, charge2, charge3);
+    erase();
 
-    endwin();                       //ends curses and clears screen
+    drawTree();
+    endwin();                    //ends curses and clears screen
     return 0;
     // IMPORTANT
     // minor changes. But look at commit a0b38a4 for guidance on what to do.
