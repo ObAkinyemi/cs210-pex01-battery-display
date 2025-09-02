@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <ncurses.h>
 #include <math.h>
+#include <time.h>
 
 #define BLACK_RED 1
 #define BLACK_GREEN 2
@@ -181,11 +182,43 @@ void drawBatteryDisplay(int charge1, int charge2, int charge3) {
     printw("Press Any key to continue...");
     getch();
 }
+int superRandom(){
+    srand(time(0));
+    return rand();
+}
 
-void drawTree(){
+void drawTree(){       
+        move(superRandom() % 20,superRandom() % 70);
+        printw("ʚ(*´꒳`*)ɞ");        
+        
         srand(rand());        
         move(rand() % 20,rand() % 70);
-        printw("ʚ(*´꒳`*)ɞ");        
+        printw("〵(^ o ^)〴");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("(•`益´•)");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("♪┏(・o･)┛♪┗( ･o･)┓♪");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("( ͡° ͜ʖ ͡°)");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("(∩｀-´)⊃━☆ﾟ.*･｡ﾟ");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("⫷ °⧭° ⫸");        
+        
+        srand(rand());        
+        move(rand() % 20,rand() % 70);
+        printw("(◍´ಲ`◍)");        
+        
         move(7,27);
         printw("press any key to exit when you see it...");
         getch();
